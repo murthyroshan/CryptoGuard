@@ -131,15 +131,6 @@ We believe education is the ultimate risk mitigation. The **Learning Hub** (`/le
 
 ---
 
-## 👥 Team & Contributors
-
-*   **[Your Name / Username]** - Lead Developer & UI/UX Designer
-*   *(Add team members here for hackathon submissions)*
-
-> If you'd like to contribute, please fork the repository and open a pull request. All major, minor, and security updates are welcome!
-
----
-
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
