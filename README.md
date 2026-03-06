@@ -122,20 +122,6 @@ We believe education is the ultimate risk mitigation. The **Learning Hub** (`/le
 
 ---
 
-## 📸 Screenshots & Demo
-
-*(Replace placeholder URLs with actual screenshots)*
-
-| Landing Page | Auth Terminal |
-| :---: | :---: |
-| <img src="https://via.placeholder.com/600x350/020617/06B6D4?text=Landing+Page+UI" alt="Landing Page" width="100%"/> | <img src="https://via.placeholder.com/600x350/020617/7C3AED?text=Terminal+Login" alt="Auth Page" width="100%"/> |
-
-| Dashboard & Ticker | Learning Hub |
-| :---: | :---: |
-| <img src="https://via.placeholder.com/600x350/020617/10B981?text=Dashboard+UI" alt="Dashboard" width="100%"/> | <img src="https://via.placeholder.com/600x350/020617/F59E0B?text=Learning+Hub" alt="Learning Hub" width="100%"/> |
-
----
-
 ## 🧪 Future Improvements
 
 - [ ] **Live Blockchain Integration:** Replace mock data with real Web3 RPC endpoints (Alchemy, Infura) and WebSockets.
