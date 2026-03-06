@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg-void: #020617;
+  --color-bg-surface: #0A1628;
+  --color-bg-elevated: #0F2040;
+
+  --color-brand-purple: #7C3AED;
+  --color-brand-cyan: #06B6D4;
+  --color-brand-glow: #A78BFA;
+
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #475569;
+
+  --color-border: rgba(255, 255, 255, 0.06);
+}
+
+:root {
+  --bg-void: #020617;
+  --bg-surface: #0A1628;
+  --bg-elevated: #0F2040;
+
+  --brand-purple: #7C3AED;
+  --brand-cyan: #06B6D4;
+  --brand-glow: #A78BFA;
+
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --danger-glow: rgba(239, 68, 68, 0.15);
+
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #475569;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(124, 58, 237, 0.4);
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ── Wordmark / Logo Animations ─────────────────────────────── */
+
+@keyframes wordmark-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shield-pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px #7C3AED) drop-shadow(0 0 2px #06B6D4);
+    opacity: 1;
+  }
+
+  50% {
+    filter: drop-shadow(0 0 14px #A78BFA) drop-shadow(0 0 6px #06B6D4);
+    opacity: 0.85;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes logo-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0.4;
+  }
+
+  94% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.6;
+  }
+
+  97% {
+    opacity: 1;
+  }
+}
+
+.wordmark-text {
+  background: linear-gradient(90deg, #A78BFA, #06B6D4, #7C3AED, #A78BFA);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wordmark-gradient 4s ease infinite, flicker 8s ease-in-out infinite;
+}
+
+.shield-icon {
+  animation: shield-pulse 3s ease-in-out infinite;
+}
+
+.logo-wrapper {
+  animation: logo-appear 0.5s ease forwards;
+}
+
+.logo-scan-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-scan-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.6), transparent);
+  animation: scan-line 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Cyberpunk Navbar ──────────────────────────────── */
+
+@keyframes neon-border-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes corner-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 4px #06B6D4;
+  }
+
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 10px #7C3AED;
+  }
+}
+
+@keyframes holo-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes status-blink {
+
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0.2;
+  }
+}
+
+.nav-neon-border {
+  background: linear-gradient(90deg, transparent 0%, #7C3AED 20%, #06B6D4 50%, #7C3AED 80%, transparent 100%);
+  background-size: 200% 100%;
+  animation: neon-border-sweep 3s linear infinite;
+}
+
+.nav-corner {
+  animation: corner-pulse 2s ease-in-out infinite;
+}
+
+.holo-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  background-size: 200% 100%;
+  animation: holo-shimmer 2.5s linear infinite;
+  pointer-events: none;
+}
+
+.status-dot {
+  animation: status-blink 4s ease-in-out infinite;
+}
+
+/* ── Global Cyberpunk Utilities ─────────────────────── */
+
+/* Card with bracket corners that appear on hover */
+.cyber-card {
+  position: relative;
+  background: rgba(10, 22, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cyber-card::before,
+.cyber-card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.cyber-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #06B6D4;
+  border-left: 2px solid #06B6D4;
+}
+
+.cyber-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #7C3AED;
+  border-right: 2px solid #7C3AED;
+}
+
+.cyber-card:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.08), inset 0 0 20px rgba(6, 182, 212, 0.03);
+}
+
+.cyber-card:hover::before,
+.cyber-card:hover::after {
+  opacity: 1;
+}
+
+/* Input with cyan focus glow */
+.cyber-input {
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #F1F5F9;
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.cyber-input::placeholder {
+  color: #334155;
+}
+
+.cyber-input:focus {
+  border-color: #06B6D4;
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.3), 0 0 12px rgba(6, 182, 212, 0.15);
+}
+
+/* Angled parallelogram CTA button */
+.cyber-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F1F5F9;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.12));
+  border: 1px solid rgba(124, 58, 237, 0.5);
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  background-size: 200% 100%;
+  animation: holo-shimmer 2.5s linear infinite;
+  pointer-events: none;
+}
+
+.cyber-btn:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.4), rgba(6, 182, 212, 0.25));
+  border-color: #7C3AED;
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.4), 0 0 8px rgba(6, 182, 212, 0.2);
+}
+
+.cyber-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Small LED-dot + mono label badge */
+.cyber-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  background: rgba(6, 182, 212, 0.06);
+  color: #06B6D4;
+}
+
+/* Neon section heading */
+.cyber-section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  background: linear-gradient(135deg, #F1F5F9 30%, #A78BFA 80%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon border line */
+.cyber-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), rgba(6, 182, 212, 0.5), transparent);
+}
+
+@keyframes terminal-cursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: terminal-cursor 1s step-start infinite;
+  color: #06B6D4;
+}
