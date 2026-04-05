@@ -65,7 +65,7 @@ Get CryptoGuard running on your local machine in seconds.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/cryptoguard.git
+   git clone https://github.com/murthyroshan/cryptoguard.git
    cd cryptoguard
    ```
 
